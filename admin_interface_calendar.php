@@ -22,7 +22,7 @@
 
 <div class="nav2">
 <ul>
-  <li><img src="images/citi.png" alt="citi logo" width="250" height="200"></li>
+  <li><img src="images/citi.png" alt="citi logo" width="185" height="115"></li>
   <li><a href="admin_interface.php">Dashboard</a></li>
   <li><a href="admin_interface_delivery.php">Delivery</a></li>
   <li><a href="admin_interface_charts.php">Charts</a></li>

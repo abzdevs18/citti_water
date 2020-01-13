@@ -1,3 +1,12 @@
+<?php 
+
+include_once("../included/db.php");
+session_start();
+$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost FROM user LEFT JOIN orders ON orders.user_id = user.id WHERE status = 0 ORDER BY o_id DESC");
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +39,7 @@ th {
 <nav>
 	<div class="citi">
     <span>|</span>
-		<li><a href="../admin_interface.php">Home</a></li>
+		<li><a href="../admin_interface.php">Dashboard</a></li>
 	</div>
 </nav>
 
@@ -48,34 +57,23 @@ th {
     <th>Action</th>
 
   </tr>
+
+<?php 
+
+  while($rows = mysqli_fetch_array($sql)){?>
+
   <tr>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td>Griffin</td>
-    <td>$100</td>
-    <td> <a href=""> Confirm </a> | <a href=""> Decline </a> </td>
+    <td><?php echo $rows["o_id"]; ?></td>
+    <td><?php echo $rows["name"]; ?></td>
+    <td><?php echo $rows["o_bottle"]; ?></td>
+    <td>$<?php echo $rows["o_cost"]; ?></td>
+    <td> <a href="../included/confirm_order_web.php?o_id=<?php echo $rows['o_id'];?>"> Confirm </a> | <a href="../included/decline_order_web.php?o_id=<?php echo $rows['o_id'];?>"> Decline </a> </td>
   </tr>
-  <tr>
-    <td>Lois</td>
-    <td>Griffin</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Confirm </a> | <a href=""> Decline </a> </td>
-  </tr>
-  <tr>
-    <td>Joe</td>
-    <td>Swanson</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Confirm </a> | <a href=""> Decline </a> </td>
-  </tr>
-  <tr>
-    <td>Cleveland</td>
-    <td>Brown</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Confirm </a> | <a href=""> Decline </a> </td>
-</tr>
+  
+<?php 
+} 
+?>
+
 </table>
 </div>
 

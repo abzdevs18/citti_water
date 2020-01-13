@@ -1,3 +1,12 @@
+<?php 
+
+include_once("../included/db.php");
+session_start();
+$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost FROM user LEFT JOIN orders ON orders.user_id = user.id WHERE status = 1 ORDER BY o_id DESC");
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +39,7 @@ th {
 <nav>
 	<div class="citi">
     <span>|</span>
-		<li><a href="../admin_interface.php">Home</a></li>
+		<li><a href="../admin_interface.php">Dashboard</a></li>
 	</div>
 </nav>
 
@@ -48,34 +57,22 @@ th {
     <th>Cost</th>
     <th>Action</th>
   </tr>
+  <?php 
+
+  while($rows = mysqli_fetch_array($sql)){?>
+
   <tr>
-    <td>Peter</td>
-    <td>$100</td>
-    <td>Peter</td>
-    <td>Griffin</td>
+    <td><?php echo $rows["o_id"]; ?></td>
+    <td><?php echo $rows["name"]; ?></td>
+    <td><?php echo $rows["o_bottle"]; ?></td>
+    <td>$<?php echo $rows["o_cost"]; ?></td>
     <td> <a href=""> Delete </a> </td>
   </tr>
-  <tr>
-    <td>Lois</td>
-    <td>$150</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Delete </a> </td>
-  </tr>
-  <tr>
-    <td>Joe</td>
-    <td>Swanson</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Delete </a> </td>
-  </tr>
-  <tr>
-    <td>Cleveland</td>
-    <td>Brown</td>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td> <a href=""> Delete </a> </td>
-</tr>
+  
+<?php 
+} 
+?>
+
 </table>
 </div>
 
