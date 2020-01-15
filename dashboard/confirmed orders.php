@@ -65,8 +65,8 @@ th {
     <td><?php echo $rows["o_id"]; ?></td>
     <td><?php echo $rows["name"]; ?></td>
     <td><?php echo $rows["o_bottle"]; ?></td>
-    <td>$<?php echo $rows["o_cost"]; ?></td>
-    <td> <a href=""> Delete </a> </td>
+    <td><?php echo $rows["o_cost"]; ?></td>
+    <td> <a href="../included/remove_web1.php?o_id=<?php echo $rows['o_id'];?>"> Remove </a> </td>
   </tr>
   
 <?php 

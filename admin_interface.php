@@ -28,10 +28,10 @@
 <ul>
   <li><img src="images/citi.png" alt="citi logo" width="185" height="115"></li>
   <li><a style="color: blue;" href="admin_interface.php">Dashboard</a></li>
-  <li><a href="admin_interface_delivery.php">Delivery</a></li>
+  <li><a href="admin_interface_delivery.php">Delivered</a></li>
   <li><a href="admin_interface_charts.php">Charts</a></li>
-  <li><a href="admin_interface_calendar.php">Calendar</a></li>
-  <li><a href="admin_interface_accounts.php">Accounts</a></li>
+  <li><a href="admin_interface_removed.php">Removed</a></li>
+  <li><a href="admin_interface_allorders.php">All Orders</a></li>
 </ul>
 </div>
 

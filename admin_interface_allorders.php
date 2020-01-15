@@ -58,8 +58,8 @@ th {
   <li><a href="admin_interface.php">Dashboard</a></li>
   <li><a href="admin_interface_delivery.php">Delivered</a></li>
   <li><a href="admin_interface_charts.php">Charts</a></li>
-  <li><a href="admin_interface_removed.php">Removed</a></li>
-  <li><a style="color: blue;" href="admin_interface_allorders.php">All Orders</a></li>
+  <li><a href="admin_interface_calendar.php">Removed</a></li>
+  <li><a style="color: blue;" href="admin_interface_accounts.php">All Orders</a></li>
 </ul>
 </div>
 

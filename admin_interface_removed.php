@@ -2,10 +2,9 @@
 
 include_once("included/db.php");
 session_start();
-$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost, orders.date_of_order AS date_of_order FROM user LEFT JOIN orders ON orders.user_id = user.id ORDER BY o_id DESC");
+$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost, orders.date_of_order AS date_of_order FROM user LEFT JOIN orders ON orders.user_id = user.id WHERE status = 3 ORDER BY o_id DESC");
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -14,8 +13,6 @@ $sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="admin_interface.css">
-
-
 <style>
 table {
   border-collapse: collapse;
@@ -36,7 +33,6 @@ th {
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -58,13 +54,13 @@ th {
   <li><a href="admin_interface.php">Dashboard</a></li>
   <li><a href="admin_interface_delivery.php">Delivered</a></li>
   <li><a href="admin_interface_charts.php">Charts</a></li>
-  <li><a href="admin_interface_removed.php">Removed</a></li>
-  <li><a style="color: blue;" href="admin_interface_allorders.php">All Orders</a></li>
+  <li><a style="color: blue;" href="admin_interface_calendar.php">Removed</a></li>
+  <li><a href="admin_interface_accounts.php">All Orders</a></li>
 </ul>
 </div>
 
 <div class="orders">
-  <h1>All Orders</h1>
+  <h1>Removed Orders</h1>
 </div>
 
 <div style="padding-top: 190px; padding-left: 240px;">
@@ -96,7 +92,6 @@ th {
 
 </table>
 </div>
-
 
 </body>
 </html>

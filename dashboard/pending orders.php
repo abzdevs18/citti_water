@@ -2,7 +2,7 @@
 
 include_once("../included/db.php");
 session_start();
-$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost FROM user LEFT JOIN orders ON orders.user_id = user.id ORDER BY o_id DESC");
+$sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders.o_bottle AS o_bottle, orders.o_cost AS o_cost FROM user LEFT JOIN orders ON orders.user_id = user.id WHERE status = 0 ORDER BY o_id DESC");
 
 ?>
 
@@ -69,7 +69,7 @@ th {
     <td><?php echo $rows["o_id"]; ?></td>
     <td><?php echo $rows["name"]; ?></td>
     <td><?php echo $rows["o_bottle"]; ?></td>
-    <td>$<?php echo $rows["o_cost"]; ?></td>
+    <td><?php echo $rows["o_cost"]; ?></td>
   </tr>
   
 <?php 

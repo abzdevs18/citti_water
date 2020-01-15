@@ -14,7 +14,7 @@ $sql = mysqli_query($conn,"SELECT orders.o_id AS o_id, user.name AS name, orders
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<style>
+<style>
 table {
   border-collapse: collapse;
   width: 90%;
@@ -66,7 +66,7 @@ th {
     <td><?php echo $rows["o_id"]; ?></td>
     <td><?php echo $rows["name"]; ?></td>
     <td><?php echo $rows["o_bottle"]; ?></td>
-    <td>$<?php echo $rows["o_cost"]; ?></td>
+    <td><?php echo $rows["o_cost"]; ?></td>
     <td> <a href="../included/confirm_order_web.php?o_id=<?php echo $rows['o_id'];?>"> Confirm </a> | <a href="../included/decline_order_web.php?o_id=<?php echo $rows['o_id'];?>"> Decline </a> </td>
   </tr>
   
