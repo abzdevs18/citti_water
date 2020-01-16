@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	include 'db.php';
 
 	$id = mysqli_real_escape_string($conn, $_POST['id']);
@@ -8,4 +8,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	mysqli_query($conn, "UPDATE `orders` SET `status` = 1 WHERE `o_id`= $id");
 
 	
-}
+// }
